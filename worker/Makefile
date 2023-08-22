@@ -3,7 +3,8 @@
 #
 
 # We need Python 3 here.
-PYTHON ?= $(shell command -v python3 2> /dev/null || echo python)
+#PYTHON ?= $(shell command -v python3 2> /dev/null || echo python)
+PYTHON ?= '/usr/local/bin/python'
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 CORES ?= $(shell ${ROOT_DIR}/scripts/cpu_cores.sh || echo 4)
 MEDIASOUP_OUT_DIR ?= $(shell pwd)/out
