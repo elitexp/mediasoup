@@ -97,12 +97,12 @@ ifeq ($(wildcard $(PIP_DIR)),)
 	# `--system` is not present everywhere and is only needed as workaround for
 	# Debian-specific issue (copied from https://github.com/gluster/gstatus/pull/33),
 	# fallback to command without `--system` if the first one fails.
-	/usr/bin/python3 -m pip install --system --target=$(PIP_DIR) pip setuptools || \
-		/usr/bin/python3 -m pip install --target=$(PIP_DIR) pip setuptools || \
+	python3 -m pip install --system --target=$(PIP_DIR) pip setuptools || \
+		python3 -m pip install --target=$(PIP_DIR) pip setuptools || \
 		echo "Installation failed, likely because PIP is unavailable, if you are on Debian/Ubuntu or derivative please install the python3-pip package"
 	# Install `meson` and `ninja` using `pip` into custom location, so we don't
 	# depend on system-wide installation.
-	/usr/bin/python3 -m pip install --upgrade --target=$(PIP_DIR) $(PIP_BUILD_BINARIES) meson==$(MESON_VERSION) ninja==$(NINJA_VERSION)
+	python3 -m pip install --upgrade --target=$(PIP_DIR) $(PIP_BUILD_BINARIES) meson==$(MESON_VERSION) ninja==$(NINJA_VERSION)
 endif
 
 setup: meson-ninja
