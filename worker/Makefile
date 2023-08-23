@@ -233,7 +233,7 @@ test-asan: setup
 	ASAN_OPTIONS=detect_leaks=1 $(BUILD_DIR)/mediasoup-worker-test-asan --invisibles --use-colour=yes $(MEDIASOUP_TEST_TAGS)
 
 tidy:
-	$(PYTHON) ./scripts/clang-tidy.py \
+	python3 ./scripts/clang-tidy.py \
 		-clang-tidy-binary=./scripts/node_modules/.bin/clang-tidy \
 		-clang-apply-replacements-binary=./scripts/node_modules/.bin/clang-apply-replacements \
 		-header-filter='(Channel/**/*.hpp|DepLibSRTP.hpp|DepLibUV.hpp|DepLibWebRTC.hpp|DepOpenSSL.hpp|DepUsrSCTP.hpp|LogLevel.hpp|Logger.hpp|MediaSoupError.hpp|RTC/**/*.hpp|Settings.hpp|Utils.hpp|Worker.hpp|common.hpp|handles/**/*.hpp)' \
